@@ -1,0 +1,64 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>CataFruta</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.23.0/dist/phaser.js"></script>
+    <script src="scenes/inicio.js"></script>
+    <script src="scenes/jogo.js"></script>
+    <script src="scenes/fim.js"></script>
+
+    <style>
+        body {
+            margin-top: 1px;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid #82faf8;
+        }
+    </style>
+</head>
+<body>
+    <div id="game"></div>
+    <script type="text/javascript">
+        /*Global variables definition*/
+        const config = {
+            type: Phaser.AUTO,
+            autoCenter: Phaser.Scale.CENTER,
+            width: 600, //largura da tela do jogo
+            height: 580, //altura da tela do jogo
+            backgroundColor: '#82faf8',
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 100 },
+                    debug: false 
+                }
+            },
+            parent: "game",
+            dom:{
+               createContainer: true,
+            },
+            scene: [inicio, jogo, fim]
+        };
+        
+        var game = new Phaser.Game(config);
+
+        var arquivos = ['cesta', 'cozinha', 'maca', 'banco1', 'banco2', 'pulo'];
+        var banco1;
+        var banco2;
+        var maca;
+        var morango;
+        var laranja;
+        var cesta;
+        var teclado;
+        var placar;
+        var pontos = 0;
+        var jump;
+        var controleTempo = 0;
+        game.scene.start('incio');
+    </script>
+
+</body>
+</html>
